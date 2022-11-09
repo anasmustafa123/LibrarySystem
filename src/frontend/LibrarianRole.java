@@ -7,19 +7,20 @@ package frontend;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
+import javax.swing.*;
 /**
  *
  * @author EXPERTS
  */
-public class LibrarianRole extends javax.swing.JFrame {
+public class LibrarianRole extends JFrame implements WindowNode{
     AddBook addBook;
     ViewBook viewBook;
     BorrowBook borrowBook;
     ViewBorrowedBooks viewBorrowedBooks;
     ReturnBook returnBook;
     backend.LibrarianRole librarianRoleB;
-         
+    WindowNode parentNode;
+
     /**
      * Creates new form LibrarianRole
      * @throws java.io.IOException
@@ -31,6 +32,7 @@ public class LibrarianRole extends javax.swing.JFrame {
         borrowBook  = new BorrowBook();
         viewBorrowedBooks = new ViewBorrowedBooks();
         returnBook = new ReturnBook();
+        parentNode = null;
         initComponents();
     }
 
@@ -43,66 +45,66 @@ public class LibrarianRole extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        borrow_book_Button = new javax.swing.JButton();
+        return_books_Button = new javax.swing.JButton();
+        view_borrowed_books_Button = new javax.swing.JButton();
+        logout_Button = new javax.swing.JButton();
+        add_book_Button = new javax.swing.JButton();
+        view_books_Button = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
-        jButton1.setBackground(new java.awt.Color(0, 0, 0));
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Add Book");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        borrow_book_Button.setBackground(new java.awt.Color(0, 0, 0));
+        borrow_book_Button.setForeground(new java.awt.Color(255, 255, 255));
+        borrow_book_Button.setText("Borrow Book");
+        borrow_book_Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                borrow_book_ButtonActionPerformed(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(0, 0, 0));
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Add Book");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        return_books_Button.setBackground(new java.awt.Color(0, 0, 0));
+        return_books_Button.setForeground(new java.awt.Color(255, 255, 255));
+        return_books_Button.setText("Return Books");
+        return_books_Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                return_books_ButtonActionPerformed(evt);
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(0, 0, 0));
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Add Book");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        view_borrowed_books_Button.setBackground(new java.awt.Color(0, 0, 0));
+        view_borrowed_books_Button.setForeground(new java.awt.Color(255, 255, 255));
+        view_borrowed_books_Button.setText("View Borrow Book");
+        view_borrowed_books_Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                view_borrowed_books_ButtonActionPerformed(evt);
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(0, 0, 0));
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("Add Book");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        logout_Button.setBackground(new java.awt.Color(0, 0, 0));
+        logout_Button.setForeground(new java.awt.Color(255, 255, 255));
+        logout_Button.setText("Logout");
+        logout_Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                logout_ButtonActionPerformed(evt);
             }
         });
 
-        jButton5.setBackground(new java.awt.Color(0, 0, 0));
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("Add Book");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        add_book_Button.setBackground(new java.awt.Color(0, 0, 0));
+        add_book_Button.setForeground(new java.awt.Color(255, 255, 255));
+        add_book_Button.setText("Add Book");
+        add_book_Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                add_book_ButtonActionPerformed(evt);
             }
         });
 
-        jButton6.setBackground(new java.awt.Color(0, 0, 0));
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setText("Add Book");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        view_books_Button.setBackground(new java.awt.Color(0, 0, 0));
+        view_books_Button.setForeground(new java.awt.Color(255, 255, 255));
+        view_books_Button.setText("View Books");
+        view_books_Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                view_books_ButtonActionPerformed(evt);
             }
         });
 
@@ -113,58 +115,68 @@ public class LibrarianRole extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE))
+                    .addComponent(return_books_Button, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
+                    .addComponent(borrow_book_Button, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(view_borrowed_books_Button, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
+                    .addComponent(logout_Button, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
+                    .addComponent(add_book_Button, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
+                    .addComponent(view_books_Button, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(43, 43, 43)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(add_book_Button, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(view_books_Button, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(9, 9, 9)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(borrow_book_Button, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(view_borrowed_books_Button, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(return_books_Button, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(logout_Button, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(27, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void borrow_book_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrow_book_ButtonActionPerformed
+        // TODO add your handling code here
+        this.setVisible(false);
+        borrowBook.setVisible(true);
+    }//GEN-LAST:event_borrow_book_ButtonActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void return_books_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_return_books_ButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+        this.setVisible(false);
+        returnBook.setVisible(true);
+    }//GEN-LAST:event_return_books_ButtonActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void view_borrowed_books_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view_borrowed_books_ButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+        this.setVisible(false);
+        viewBorrowedBooks.setVisible(true);
+    }//GEN-LAST:event_view_borrowed_books_ButtonActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void logout_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logout_ButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+        this.setVisible(false);
+        ((JFrame)getParentNode()).setVisible(true);
+    }//GEN-LAST:event_logout_ButtonActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void add_book_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_book_ButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+        this.setVisible(false);
+        addBook.setVisible(true);
+    }//GEN-LAST:event_add_book_ButtonActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void view_books_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view_books_ButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_view_books_ButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -206,11 +218,21 @@ public class LibrarianRole extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton add_book_Button;
+    private javax.swing.JButton borrow_book_Button;
+    private javax.swing.JButton logout_Button;
+    private javax.swing.JButton return_books_Button;
+    private javax.swing.JButton view_books_Button;
+    private javax.swing.JButton view_borrowed_books_Button;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void setParentNode(WindowNode parentNode) {
+        this.parentNode = parentNode; 
+    }
+
+    @Override
+    public WindowNode getParentNode() {
+        return parentNode;
+    }
 }

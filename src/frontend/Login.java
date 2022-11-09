@@ -6,8 +6,6 @@ package frontend;
 
 import contents.LoginCredenitals;
 import java.io.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.*;
 
 /**
@@ -16,9 +14,12 @@ import javax.swing.*;
  */
 public class Login extends JFrame implements LoginCredenitals,WindowNode{
     AdminRole adminRole;
-    WindowNode parentNode;
-   
-    public Login(int i) throws IOException{  //i==1 if adminLogin if i==2 a librarianLogin
+    LibrarianRole librarianRole;
+   private WindowNode parentNode;
+   private int check;  //check==1 if login if i==2 a librarianLogin
+    public Login(int i) throws IOException{ 
+        check = i;
+        librarianRole = new LibrarianRole();
         adminRole  =new AdminRole();
         initComponents();
     }
@@ -131,10 +132,25 @@ public class Login extends JFrame implements LoginCredenitals,WindowNode{
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
         // TODO add your handling code here:
-        if(userName.getText().equals(ADMIN_USERNAME) && password.getText().equals(ADMIN_PASSWORD) ){
-            adminRole.setTitle("Admin Role");
+        String user_name = "",user_password = "";
+        if(check == 1){
+            user_name = ADMIN_USERNAME;
+            user_password  = ADMIN_PASSWORD;
+        }
+        else if(check == 2){
+            user_name = LIBRARIAN_USERNAME;
+            user_password = LIBRARIAN_PASSWORD;
+        }
+        if(userName.getText().equals(user_name) && password.getText().equals(user_password) ){
             this.setVisible(false);
-            adminRole.setVisible(true);
+            if(check == 1){
+                adminRole.setTitle("Admin Role");
+                adminRole.setVisible(true);
+            }
+            else if(check == 2){
+                librarianRole.setTitle("Librarian Role");
+                librarianRole.setVisible(true);    
+            }
             password.setText("");
             userName.setText("");
         }   

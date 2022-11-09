@@ -94,8 +94,7 @@ public class LibrarySystem extends javax.swing.JFrame implements WindowNode{
             this.setVisible(false);
             login.setTitle("Admin Login");
             login.setParentNode(this);
-            login.adminRole.setParentNode(this);
-            
+            login.adminRole.setParentNode(this);  //setting the library system as the parent of the admin role to return to here after logging out
             login.setVisible(true);
         } catch (IOException ex) {
             Logger.getLogger(LibrarySystem.class.getName()).log(Level.SEVERE, null, ex);
@@ -111,6 +110,7 @@ public class LibrarySystem extends javax.swing.JFrame implements WindowNode{
             login.setVisible(true);
             login.setTitle("Librarian Login");
             login.setParentNode(this);
+            login.librarianRole.setParentNode(this); //setting the library system as the parent of the librarian role to return to here after logging out
         } catch (IOException ex) {
             Logger.getLogger(LibrarySystem.class.getName()).log(Level.SEVERE, null, ex);
         }
