@@ -12,17 +12,16 @@ public class LibrarianRole implements FileNames{
     public LibrarianRole()throws IOException{
         bookDatabase.readFromFile();
         studentBookDatabase.readFromFile();}
-    public void addBook(String bookId,String title,String authorName,String publisherName,int quantity) throws IOException {
-        if(bookDatabase.contains(bookId)){
-
-            BookData Book = ((BookData) bookDatabase.getRecord(bookId));
-            Book.setQuantity(Book.getQuantity() + quantity);
-            //JOptionPane.showMessageDialog(null, " '" + quantity + "'  books with id '" + bookId + "'  was added");
-            return;
-        }
-        BookData newBook = new BookData(bookId,title,authorName,publisherName,quantity);
+    public boolean addBook(String bookId,String title,String authorName,String publisherName,int quantity) throws IOException {
+        if(bookDatabase.contains(bookId))
+            return false;
+        else {
+            BookData newBook = new BookData(bookId,title,authorName,publisherName,quantity);
         bookDatabase.insertRecord(newBook);
-        bookDatabase.saveToFile();
+        return true;
+        }
+            
+        
     }
     public BookData[] getListOfBooks(){
         return  bookDatabase.ArrayList().toArray(new BookData[0]);
@@ -46,7 +45,6 @@ public class LibrarianRole implements FileNames{
             Data borrower = new StudentBookData(studentId,bookId,borrowDate);
             studentBookDatabase.insertRecord(borrower);
             studentBookDatabase.saveToFile();
-            bookDatabase.saveToFile();
             return 2;
         }
     }

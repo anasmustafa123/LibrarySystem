@@ -15,7 +15,7 @@ import javax.swing.*;
  */
 public class AddLibrarian extends JFrame implements WindowNode{
 
-    backend.AdminRole adminRoleB;
+    private backend.AdminRole adminRoleB;
     WindowNode parentNode;
     
 /**

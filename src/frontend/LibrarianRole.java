@@ -14,7 +14,7 @@ import javax.swing.*;
  */
 public class LibrarianRole extends JFrame implements WindowNode{
     AddBook addBook;
-    ViewBook viewBook;
+    ViewBooks viewBooks;
     BorrowBook borrowBook;
     ViewBorrowedBooks viewBorrowedBooks;
     ReturnBook returnBook;
@@ -27,10 +27,10 @@ public class LibrarianRole extends JFrame implements WindowNode{
      */
     public LibrarianRole() throws IOException {
         librarianRoleB = new backend.LibrarianRole();
-        addBook = new AddBook();
-        viewBook = new ViewBook();
+        addBook = new AddBook(librarianRoleB);
+        viewBooks = new ViewBooks(new String[]{"Book Id","Title","Auther Name","publisher","No of Copies"});
         borrowBook  = new BorrowBook();
-        viewBorrowedBooks = new ViewBorrowedBooks();
+        viewBorrowedBooks = new ViewBorrowedBooks(new String[] {"Student ID","Book ID", "Borrow Date"});
         returnBook = new ReturnBook();
         parentNode = null;
         initComponents();
@@ -158,10 +158,17 @@ public class LibrarianRole extends JFrame implements WindowNode{
 
     private void view_borrowed_books_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view_borrowed_books_ButtonActionPerformed
         // TODO add your handling code here:
+        backend.StudentBookData[] studentBookDatas = librarianRoleB.getListOfBorrowingOperations();
+        String[][] studentBookDatases = new String[studentBookDatas.length][5];
+        for (int i = 0 ;i<studentBookDatas.length;i++){
+        studentBookDatases[i] = (studentBookDatas[i].lineRepresentation()).split(",");
+        }
+        viewBorrowedBooks.setData(studentBookDatases);
+        viewBorrowedBooks.setParentNode(this);
         this.setVisible(false);
         viewBorrowedBooks.setVisible(true);
     }//GEN-LAST:event_view_borrowed_books_ButtonActionPerformed
-
+    
     private void logout_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logout_ButtonActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
@@ -172,10 +179,20 @@ public class LibrarianRole extends JFrame implements WindowNode{
         // TODO add your handling code here:
         this.setVisible(false);
         addBook.setVisible(true);
+        addBook.setParentNode(this);
     }//GEN-LAST:event_add_book_ButtonActionPerformed
 
     private void view_books_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view_books_ButtonActionPerformed
         // TODO add your handling code here:
+        backend.BookData[] bookDatas = librarianRoleB.getListOfBooks();
+        String[][] bookDatases = new String[bookDatas.length][5];
+        for (int i = 0 ;i<bookDatas.length;i++){
+        bookDatases[i] = (bookDatas[i].lineRepresentation()).split(",");
+        }
+        viewBooks.setData(bookDatases);
+        this.setVisible(false);
+        viewBooks.setVisible(true);
+        viewBooks.setParentNode(this);
     }//GEN-LAST:event_view_books_ButtonActionPerformed
 
     /**
