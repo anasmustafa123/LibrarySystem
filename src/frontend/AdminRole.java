@@ -119,6 +119,8 @@ public class AdminRole extends JFrame implements WindowNode  {
 
     private void addIibrarianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addIibrarianActionPerformed
         // TODO add your handling code here:
+        addLibrarian.setLocationRelativeTo(null);
+        addLibrarian.setResizable(false);
         this.setVisible(false);
         addLibrarian.setParentNode(this);
         addLibrarian.setVisible(true);
@@ -127,6 +129,8 @@ public class AdminRole extends JFrame implements WindowNode  {
 
     private void viewLibrarianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewLibrarianActionPerformed
         // TODO add your handling code here:
+        viewLibrarianWindow.setLocationRelativeTo(null);
+        viewLibrarianWindow.setResizable(false);
         backend.LibrarianData[] librarianDatas= adminRoleB.getListOfLibrarians();
         String[][] librarianDatases = new String[librarianDatas.length][5];
         for(int i = 0;i<librarianDatas.length;i++){
@@ -141,6 +145,8 @@ public class AdminRole extends JFrame implements WindowNode  {
 
     private void remove_LibrarianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_remove_LibrarianActionPerformed
         // TODO add your handling code here:
+        removeLibrarian.setLocationRelativeTo(null);
+        removeLibrarian.setResizable(false);
         this.setVisible(false);
         removeLibrarian.setTitle("Remove Librarian");
         removeLibrarian.setVisible(true);
@@ -158,44 +164,6 @@ public class AdminRole extends JFrame implements WindowNode  {
         }
     }//GEN-LAST:event_logOutActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AdminRole.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AdminRole.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AdminRole.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AdminRole.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    new AdminRole().setVisible(true);
-                } catch (IOException ex) {
-                    Logger.getLogger(AdminRole.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addIibrarian;

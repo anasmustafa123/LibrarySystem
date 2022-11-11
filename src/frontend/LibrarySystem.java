@@ -91,6 +91,8 @@ public class LibrarySystem extends javax.swing.JFrame implements WindowNode{
         try {
             // TODO add your handling code here:
             login = new Login(1);
+            login.setLocationRelativeTo(null);
+            login.setResizable(false);
             this.setVisible(false);
             login.setTitle("Admin Login");
             login.setParentNode(this);
@@ -106,6 +108,8 @@ public class LibrarySystem extends javax.swing.JFrame implements WindowNode{
         try {
             // TODO add your handling code here:
             login = new Login(2);
+            login.setLocationRelativeTo(null);
+            login.setResizable(false);
             this.setVisible(false);
             login.setVisible(true);
             login.setTitle("Librarian Login");
@@ -153,7 +157,7 @@ public class LibrarySystem extends javax.swing.JFrame implements WindowNode{
                     LibrarySystem librarySystem = new LibrarySystem();
                     librarySystem.setVisible(true);
                     librarySystem.setResizable(false);
-                    librarySystem.setBounds(700,300,536, 412);
+                    librarySystem.setLocationRelativeTo(null);
                     
                 } catch (IOException ex) {
                     Logger.getLogger(LibrarySystem.class.getName()).log(Level.SEVERE, null, ex);

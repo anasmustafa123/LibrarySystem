@@ -44,7 +44,6 @@ public class LibrarianRole implements FileNames{
             record.setQuantity(record.getQuantity()-1);
             Data borrower = new StudentBookData(studentId,bookId,borrowDate);
             studentBookDatabase.insertRecord(borrower);
-            studentBookDatabase.saveToFile();
             return 2;
         }
     }
@@ -54,16 +53,19 @@ public class LibrarianRole implements FileNames{
         if(studentBookDatabase.contains(key)){
             BookData thisbook = ((BookData) bookDatabase.getRecord(bookId));
             thisbook.setQuantity(thisbook.getQuantity()+1);
-            bookDatabase.saveToFile();
-        }
+        }   
         studentBookDatabase.deleteRecord(key); //deleting the record of borrowing
-        studentBookDatabase.saveToFile();    //updating the file after deleting
+        try{
         Period period = Period.between(studentBook.getBorrowDate(),returnDate); //return the difference in day-year-month
         int days = period.getDays() + period.getMonths()*30 + period.getYears()*365;
         if(days <= 7.0)
             return 0.0;
         else
             return (days - 7.0)*0.5;
+        }catch(NullPointerException n){
+            System.err.println("thers wasnt any borrowed book with the id "+bookId+" in the library !!");
+            return 0;
+        }   
     }
     public void logout()throws IOException{
         bookDatabase.saveToFile();

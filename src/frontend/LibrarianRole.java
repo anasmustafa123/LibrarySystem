@@ -29,9 +29,9 @@ public class LibrarianRole extends JFrame implements WindowNode{
         librarianRoleB = new backend.LibrarianRole();
         addBook = new AddBook(librarianRoleB);
         viewBooks = new ViewBooks(new String[]{"Book Id","Title","Auther Name","publisher","No of Copies"});
-        borrowBook  = new BorrowBook();
+        borrowBook  = new BorrowBook(librarianRoleB);
         viewBorrowedBooks = new ViewBorrowedBooks(new String[] {"Student ID","Book ID", "Borrow Date"});
-        returnBook = new ReturnBook();
+        returnBook = new ReturnBook(librarianRoleB);
         parentNode = null;
         initComponents();
     }
@@ -146,23 +146,34 @@ public class LibrarianRole extends JFrame implements WindowNode{
 
     private void borrow_book_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrow_book_ButtonActionPerformed
         // TODO add your handling code here
+        borrowBook.setLocationRelativeTo(null);
+        borrowBook.setResizable(false);
+        borrowBook.setTitle("Borrow Book");
         this.setVisible(false);
         borrowBook.setVisible(true);
+        borrowBook.setParentNode(this);
     }//GEN-LAST:event_borrow_book_ButtonActionPerformed
 
     private void return_books_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_return_books_ButtonActionPerformed
         // TODO add your handling code here:
+        returnBook.setLocationRelativeTo(null);
+        returnBook.setResizable(false);
+        returnBook.setTitle("return book");
         this.setVisible(false);
         returnBook.setVisible(true);
+        returnBook.setParentNode(this);
     }//GEN-LAST:event_return_books_ButtonActionPerformed
 
     private void view_borrowed_books_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view_borrowed_books_ButtonActionPerformed
         // TODO add your handling code here:
+        viewBorrowedBooks.setLocationRelativeTo(null);
+        viewBorrowedBooks.setResizable(false);
         backend.StudentBookData[] studentBookDatas = librarianRoleB.getListOfBorrowingOperations();
         String[][] studentBookDatases = new String[studentBookDatas.length][5];
         for (int i = 0 ;i<studentBookDatas.length;i++){
         studentBookDatases[i] = (studentBookDatas[i].lineRepresentation()).split(",");
         }
+        viewBorrowedBooks.setTitle("view Borrowed Books");
         viewBorrowedBooks.setData(studentBookDatases);
         viewBorrowedBooks.setParentNode(this);
         this.setVisible(false);
@@ -177,6 +188,9 @@ public class LibrarianRole extends JFrame implements WindowNode{
 
     private void add_book_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_book_ButtonActionPerformed
         // TODO add your handling code here:
+        addBook.setLocationRelativeTo(null);
+        addBook.setResizable(false);
+        addBook.setTitle("add book");
         this.setVisible(false);
         addBook.setVisible(true);
         addBook.setParentNode(this);
@@ -184,6 +198,9 @@ public class LibrarianRole extends JFrame implements WindowNode{
 
     private void view_books_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view_books_ButtonActionPerformed
         // TODO add your handling code here:
+        viewBooks.setLocationRelativeTo(null);
+        viewBooks.setResizable(false);
+        viewBooks.setTitle("view books");
         backend.BookData[] bookDatas = librarianRoleB.getListOfBooks();
         String[][] bookDatases = new String[bookDatas.length][5];
         for (int i = 0 ;i<bookDatas.length;i++){
@@ -194,45 +211,6 @@ public class LibrarianRole extends JFrame implements WindowNode{
         viewBooks.setVisible(true);
         viewBooks.setParentNode(this);
     }//GEN-LAST:event_view_books_ButtonActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LibrarianRole.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LibrarianRole.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LibrarianRole.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LibrarianRole.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    new LibrarianRole().setVisible(true);
-                } catch (IOException ex) {
-                    Logger.getLogger(LibrarianRole.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton add_book_Button;

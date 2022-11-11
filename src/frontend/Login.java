@@ -5,6 +5,8 @@
 package frontend;
 
 import contents.LoginCredenitals;
+import java.awt.Component;
+import java.awt.Graphics;
 import java.io.*;
 import javax.swing.*;
 
@@ -15,17 +17,13 @@ import javax.swing.*;
 public class Login extends JFrame implements LoginCredenitals,WindowNode{
     AdminRole adminRole;
     LibrarianRole librarianRole;
-   private WindowNode parentNode;
-   private int check;  //check==1 if login if i==2 a librarianLogin
+    private WindowNode parentNode;
+    private int check;  //check==1 if login if i==2 a librarianLogin
     public Login(int i) throws IOException{ 
         check = i;
         librarianRole = new LibrarianRole();
         adminRole  =new AdminRole();
         initComponents();
-    }
-
-    private Login() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     /**
@@ -144,10 +142,14 @@ public class Login extends JFrame implements LoginCredenitals,WindowNode{
         if(userName.getText().equals(user_name) && password.getText().equals(user_password) ){
             this.setVisible(false);
             if(check == 1){
+                adminRole.setLocationRelativeTo(null);
+                adminRole.setResizable(false);
                 adminRole.setTitle("Admin Role");
                 adminRole.setVisible(true);
             }
             else if(check == 2){
+                librarianRole.setLocationRelativeTo(null);
+                librarianRole.setResizable(false);
                 librarianRole.setTitle("Librarian Role");
                 librarianRole.setVisible(true);    
             }
@@ -162,38 +164,6 @@ public class Login extends JFrame implements LoginCredenitals,WindowNode{
         // TODO add your handling code here:
     }//GEN-LAST:event_passwordActionPerformed
 
-   
-    public static void main(String args[]){
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Login().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
