@@ -1,7 +1,0 @@
-B2394,Harry Potter and the Prisoner of Azkaban,J. K. Rowling,Bloomsbury,6
-B2395,Harry Potter and the Philosopher's Stone,J. K. Rowling,Bloomsbury,5
-B2396,Harry Potter and the Chamber of Secrets,J. K. Rowling,Bloomsbury,3
-B2397,The Fellowship of the Ring,J. R. R. Tolkien,Allen & Unwin,4
-B2398,The Two Towers,J. R. R. Tolkien,Allen & Unwin,2
-B2399,The Return of the King,J. R. R. Tolkien,Allen & Unwin,0
-B2391,Fire & Blood,George R. R. Martin,Bantam Books,7
