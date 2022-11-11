@@ -176,12 +176,13 @@ public class AddBook extends JFrame implements WindowNode{
                 if(!isAdded)
                     JOptionPane.showMessageDialog(null, "the Book With id "+ book_id.getText()+ " already exists!");
                 else {
+                    //ٍString bId = (book_id.getText());
+                    book_id.setText("");
+                    authername.setText("");
+                    publisher_.setText("");
+                    title_.setText("");
+                    no_of_copies.setText("");
                     JOptionPane.showMessageDialog(null, "the Book With id "+ book_id.getText()+ " has been successfully added");  
-                book_id.setText("");
-                authername.setText("");
-                publisher_.setText("");
-                title_.setText("");
-                no_of_copies.setText("");
                 }
             }
         } catch (IOException ex) {

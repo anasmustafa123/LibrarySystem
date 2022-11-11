@@ -140,10 +140,12 @@ backend.LibrarianRole librarianRoleB;
         else{
             try {
                 double fee =librarianRoleB.returnBook(student_id.getText(), book_id.getText(), LocalDate.ofInstant((return_date.getDate()).toInstant(), ZoneId.systemDefault()));
-                JOptionPane.showMessageDialog(null, "the student with id: "+student_id.getText()+" should pay a return fee of " + fee + "US dollars for the book with id : "+ book_id.getText());
+                String bI = book_id.getText();
+                String sI = student_id.getText();
                 book_id.setText("");
                 student_id.setText("");
                 return_date.setDate(null);
+                JOptionPane.showMessageDialog(null, "the student with id: "+sI+" should pay a return fee of " + fee + "US dollars for the book with id : "+ bI);
             } catch (IOException ex) {
                 Logger.getLogger(ReturnBook.class.getName()).log(Level.SEVERE, null, ex);
             }

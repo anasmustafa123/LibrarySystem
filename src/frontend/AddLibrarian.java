@@ -195,13 +195,13 @@ public class AddLibrarian extends JFrame implements WindowNode{
                 } catch (IOException ex) {
                     Logger.getLogger(AddLibrarian.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                JOptionPane.showMessageDialog(null, "the Librarian Id = " +librarianId.getText()+ " username has been successfully added");
                 librarianId.setText("");
                 librarianId.setText("");
                 name.setText("");
                 email.setText("");
                 address.setText("");
                 phoneNumber.setText("");
+                JOptionPane.showMessageDialog(null, "the Librarian Id = " +librarianId.getText()+ " username has been successfully added"); 
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
