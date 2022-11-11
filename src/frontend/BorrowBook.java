@@ -6,7 +6,6 @@ package frontend;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.*;
-import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
@@ -157,10 +156,12 @@ public class BorrowBook extends JFrame implements WindowNode{
                 switch (check) {
                     case 1 -> JOptionPane.showMessageDialog(null, "the student id : "+ student_id.getText() + " has already borrowed a copy of the book with id "+book_id.getText()+" and hasnt returned it yet");
                     case 0 -> JOptionPane.showMessageDialog(null, "all the copies ot the book whoose id : "+ book_id.getText() + " have been borrowed and no copy is left for stuedent with id : "+student_id.getText()+" and hasnt returned it yet");
-                    case 2 -> { student_id.setText("");
+                    case 2 -> { String bId = book_id.getText();
+                                String sId = student_id.getText();
+                                 student_id.setText("");
                                 book_id.setText("");
                                 borrow_date.setDate(null);
-                                JOptionPane.showMessageDialog(null, "the student id : "+ student_id.getText() + " has successfully borrowed a copy of the book whoose id :" + book_id.getText());
+                                JOptionPane.showMessageDialog(null, "the student id : "+ sId + " has successfully borrowed a copy of the book whoose id :" + bId);
                     } 
                     default -> {
                     }

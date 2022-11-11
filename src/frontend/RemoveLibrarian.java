@@ -109,10 +109,9 @@ public class RemoveLibrarian extends JFrame implements WindowNode{
             boolean isDeleted  = adminRoleB.removeLibrarian(librarianID.getText());
             if(!isDeleted)
                 JOptionPane.showMessageDialog(null, "the Librarian Id = "+ librarianID.getText()+" username doesn't exist!");
-            else{
+            else{String lI = librarianID.getText();
                 librarianID.setText("");
-                JOptionPane.showMessageDialog(null, "the Librarian Id = "+ librarianID.getText()+" has been deleted");
-                librarianID.setText("");
+                JOptionPane.showMessageDialog(null, "the Librarian Id = "+ lI+" has been deleted");
             }              
         } catch (IOException ex) {
             Logger.getLogger(RemoveLibrarian.class.getName()).log(Level.SEVERE, null, ex);
