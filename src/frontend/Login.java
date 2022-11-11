@@ -156,8 +156,12 @@ public class Login extends JFrame implements LoginCredenitals,WindowNode{
             password.setText("");
             userName.setText("");
         }   
-        else
+        else{
             JOptionPane.showMessageDialog(null, "Wrong Username or Password");
+            this.setVisible(false);
+            ((JFrame)getParentNode()).setVisible(true);
+        }
+            
     }//GEN-LAST:event_loginActionPerformed
 
     private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed

@@ -115,6 +115,7 @@ public class LibrarySystem extends javax.swing.JFrame implements WindowNode{
             login.setTitle("Librarian Login");
             login.setParentNode(this);
             login.librarianRole.setParentNode(this); //setting the library system as the parent of the librarian role to return to here after logging out
+            login.setParentNode(this);
         } catch (IOException ex) {
             Logger.getLogger(LibrarySystem.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -26,12 +26,12 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="return_books_Button" pref="213" max="32767" attributes="0"/>
+                  <Component id="return_books_Button" pref="239" max="32767" attributes="0"/>
                   <Component id="borrow_book_Button" alignment="1" max="32767" attributes="0"/>
-                  <Component id="view_borrowed_books_Button" alignment="0" pref="213" max="32767" attributes="0"/>
-                  <Component id="logout_Button" alignment="0" pref="213" max="32767" attributes="0"/>
-                  <Component id="add_book_Button" alignment="0" pref="213" max="32767" attributes="0"/>
-                  <Component id="view_books_Button" alignment="0" pref="213" max="32767" attributes="0"/>
+                  <Component id="view_borrowed_books_Button" alignment="0" pref="239" max="32767" attributes="0"/>
+                  <Component id="logout_Button" alignment="0" pref="239" max="32767" attributes="0"/>
+                  <Component id="add_book_Button" alignment="0" pref="239" max="32767" attributes="0"/>
+                  <Component id="view_books_Button" alignment="0" pref="239" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
