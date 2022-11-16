@@ -5,8 +5,6 @@
 package frontend;
 
 import contents.LoginCredenitals;
-import java.awt.Component;
-import java.awt.Graphics;
 import java.io.*;
 import javax.swing.*;
 
@@ -153,15 +151,14 @@ public class Login extends JFrame implements LoginCredenitals,WindowNode{
                 librarianRole.setTitle("Librarian Role");
                 librarianRole.setVisible(true);    
             }
-            password.setText("");
-            userName.setText("");
         }   
         else{
             JOptionPane.showMessageDialog(null, "Wrong Username or Password");
             this.setVisible(false);
             ((JFrame)getParentNode()).setVisible(true);
         }
-            
+        password.setText("");
+        userName.setText(""); 
     }//GEN-LAST:event_loginActionPerformed
 
     private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed

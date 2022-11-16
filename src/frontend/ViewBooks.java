@@ -21,10 +21,6 @@ public class ViewBooks extends JFrame implements WindowNode{
         initComponents();
     }
 
-    private ViewBooks() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
     public void setData(String[][] bookDatases){
         jTable1.setModel(new DefaultTableModel(bookDatases,columnNames){
             @Override

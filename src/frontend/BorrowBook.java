@@ -27,9 +27,6 @@ public class BorrowBook extends JFrame implements WindowNode{
         initComponents();
     }
 
-    private BorrowBook() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -154,6 +151,14 @@ public class BorrowBook extends JFrame implements WindowNode{
             else{
             int check = librarianRoleB.borrowBook(student_id.getText(), book_id.getText(), LocalDate.ofInstant((borrow_date.getDate()).toInstant(),ZoneId.systemDefault()));
                 switch (check) {
+                    case 3 -> {
+                                String bId = book_id.getText();
+                                student_id.setText("");
+                                book_id.setText("");
+                                borrow_date.setDate(null);
+                                JOptionPane.showMessageDialog(null, "the book with the id : "+ bId + " is not registered!!");
+                    
+                    }
                     case 1 -> JOptionPane.showMessageDialog(null, "the student id : "+ student_id.getText() + " has already borrowed a copy of the book with id "+book_id.getText()+" and hasnt returned it yet");
                     case 0 -> JOptionPane.showMessageDialog(null, "all the copies ot the book whoose id : "+ book_id.getText() + " have been borrowed and no copy is left for stuedent with id : "+student_id.getText()+" and hasnt returned it yet");
                     case 2 -> { String bId = book_id.getText();
@@ -170,11 +175,16 @@ public class BorrowBook extends JFrame implements WindowNode{
         } catch (IOException ex) {
             Logger.getLogger(BorrowBook.class.getName()).log(Level.SEVERE, null, "");
         }
-        
+        student_id.setText("");
+        book_id.setText("");
+        borrow_date.setDate(null);
     }//GEN-LAST:event_borrow_bottonActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         // TODO add your handling code here:
+        student_id.setText("");
+        book_id.setText("");
+        borrow_date.setDate(null);
         this.setVisible(false);
         ((JFrame)getParentNode()).setVisible(true);
     }//GEN-LAST:event_formWindowClosing

@@ -1,5 +1,5 @@
 package backend;
-import contants.FileNames;
+import contents.FileNames;
 import java.io.IOException;
 
 public class AdminRole implements FileNames{

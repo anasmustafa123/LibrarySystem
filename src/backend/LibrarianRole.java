@@ -1,5 +1,5 @@
 package backend;
-import contants.FileNames;
+import contents.FileNames;
 //import java.awt.print.Book;
 import java.io.IOException;
 import java.time.LocalDate;
@@ -34,7 +34,7 @@ public class LibrarianRole implements FileNames{
     public int borrowBook(String studentId, String bookId, LocalDate borrowDate) throws IOException{
         BookData record = ((BookData)bookDatabase.getRecord(bookId));
         if(record==null)
-            return 0;
+            return 3;
         String key = String.format("%s,%s",studentId,bookId);
         if(studentBookDatabase.contains(key))
             return 1;

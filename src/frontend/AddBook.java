@@ -188,10 +188,20 @@ public class AddBook extends JFrame implements WindowNode{
         } catch (IOException ex) {
             Logger.getLogger(AddBook.class.getName()).log(Level.SEVERE, null, ex);
         }
+        book_id.setText("");
+        authername.setText("");
+        publisher_.setText("");
+        title_.setText("");
+        no_of_copies.setText("");
     }//GEN-LAST:event_add_bottonActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         // TODO add your handling code here:
+        book_id.setText("");
+        authername.setText("");
+        publisher_.setText("");
+        title_.setText("");
+        no_of_copies.setText("");
         this.setVisible(false);
          ((JFrame)getParentNode()).setVisible(true);
     }//GEN-LAST:event_formWindowClosing

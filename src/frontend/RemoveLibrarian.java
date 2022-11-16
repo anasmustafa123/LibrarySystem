@@ -116,11 +116,12 @@ public class RemoveLibrarian extends JFrame implements WindowNode{
         } catch (IOException ex) {
             Logger.getLogger(RemoveLibrarian.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+        librarianID.setText("");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         // TODO add your handling code here
+        librarianID.setText("");
         this.setVisible(false);
         ((JFrame)getParentNode()).setVisible(true);
     }//GEN-LAST:event_formWindowClosing

@@ -181,7 +181,12 @@ public class LibrarianRole extends JFrame implements WindowNode{
     }//GEN-LAST:event_view_borrowed_books_ButtonActionPerformed
     
     private void logout_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logout_ButtonActionPerformed
-        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            librarianRoleB.logout();
+        } catch (IOException ex) {
+            Logger.getLogger(LibrarianRole.class.getName()).log(Level.SEVERE, null, ex);
+        }
         this.setVisible(false);
         ((JFrame)getParentNode()).setVisible(true);
     }//GEN-LAST:event_logout_ButtonActionPerformed

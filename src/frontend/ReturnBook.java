@@ -151,11 +151,16 @@ backend.LibrarianRole librarianRoleB;
             }
         }
 
-                
+        book_id.setText("");
+        student_id.setText("");
+        return_date.setDate(null);
     }//GEN-LAST:event_return_bottonActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         // TODO add your handling code here:
+        book_id.setText("");
+        student_id.setText("");
+        return_date.setDate(null);
         this.setVisible(false);
         ((JFrame)getParentNode()).setVisible(true);
     }//GEN-LAST:event_formWindowClosing
